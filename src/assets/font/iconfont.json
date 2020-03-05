@@ -1,0 +1,58 @@
+{
+  "id": "1514915",
+  "name": "  魅族",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "123",
+  "glyphs": [
+    {
+      "icon_id": "3824029",
+      "name": "待收货",
+      "font_class": "daishouhuo",
+      "unicode": "e86a",
+      "unicode_decimal": 59498
+    },
+    {
+      "icon_id": "5174152",
+      "name": "消息",
+      "font_class": "xiaoxi",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "5234182",
+      "name": "支付宝",
+      "font_class": "umidd17",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "7530412",
+      "name": "退货",
+      "font_class": "tuihuo",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "10020937",
+      "name": "待发货",
+      "font_class": "daifahuo",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "10497711",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "11410384",
+      "name": "待付款",
+      "font_class": "fukuan",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    }
+  ]
+}
