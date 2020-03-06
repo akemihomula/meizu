@@ -20,7 +20,8 @@ import "animate.css";
 import "./assets/font/iconfont.css"
 // 数据请求
 import axios from "axios";
-//请求数据统一连接
+//请求数据统一连接 
+// 如果使用后台功能 请改为本地ip地址+3000端口
 axios.defaults.baseURL = "http://192.168.124.5:3000";
 
 Vue.prototype.$axios = axios;

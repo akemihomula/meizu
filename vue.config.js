@@ -17,5 +17,5 @@ module.exports = {
   },
 
   // 构建输出目录
-  outputDir:"../server/dist" //构建输出目录
+  outputDir:"./build/dist" //构建输出目录
 };

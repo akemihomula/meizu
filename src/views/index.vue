@@ -328,6 +328,8 @@ export default {
   created() {
     this.$store.state.ispd = true;
     this.$store.state.index = true;
+    // 打包防止bug 刷新返回/
+    // this.$router.push("/");
     // window.console.log("123");
   },
   mounted() {
