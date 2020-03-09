@@ -1,17 +1,20 @@
-# 11-15zy
+# meizu项目
 
 ## Project setup
 ```
+// 安装项目依赖
 npm install
 ```
 
 ### Compiles and hot-reloads for development
 ```
+// 启动项目服务
 npm run serve
 ```
 
 ### Compiles and minifies for production
 ```
+// 项目打包
 npm run build
 ```
 
@@ -25,11 +28,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### 后台未开启
 暂不支持登录注册功能
-
-## 特殊结构
-
-## 源代码
-meizu内的代码
 
 ## 打包代码
 meizu>build为打包代码
