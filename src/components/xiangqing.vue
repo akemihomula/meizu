@@ -195,7 +195,9 @@ export default {
   methods: {
     //返回主页
     goindex() {
-      this.$router.push("/index");
+      // 这里设置为返回上级比较合理
+      // this.$router.push("/index");
+      this.$router.back(-1)
     },
     formatPrice() {
       return "¥" + (this.$store.state.xqy.objs.price / 100).toFixed(2);
@@ -204,11 +206,13 @@ export default {
       this.$router.push("/cart");
     },
     getcart() {
+      // 获取购物车长度 根据长度给予id
       let ids = this.$store.state.cart.goods.length;
       //判断，需要从购物车的数组中判断是否有相等的，如果有 就让num+1
       var gets = true;
       this.$store.state.cart.goods.forEach((element, index) => {
-        //判断name是否重合
+        //判断name是否重合 判断名字是否重合
+        //寻找所有商品里面唯一的标识符进行判断就可以了
         if (element.title == this.$store.state.xqy.objs.title) {
           //如果判断是数量+1，就不要再push进数组了
           this.$store.state.cart.goods[index].num++;
@@ -219,6 +223,7 @@ export default {
       if (gets) {
         var obj = {
           // id: ''+ ++this.$store.state.cart.goods.length +'',
+          // id的唯一标识 和数据传输
           id: "" + ++ids + "",
           title: this.$store.state.xqy.objs.title,
           desc: this.$store.state.xqy.objs.text,
@@ -312,10 +317,11 @@ export default {
   }
 }
 .next {
+  //最好设置一个下拉隐藏 上拉显示
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   left: 10px;
   top: 10px;
   z-index: 200000;

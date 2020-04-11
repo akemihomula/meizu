@@ -22,7 +22,7 @@
             <button @click.stop="item.num++">+</button>
           </div>
           <van-card
-            :title="item.title"
+            :title="'商品名称：'+item.title"
             :desc="item.desc"
             :num="item.num"
             :price="formatPrice(item.price)"
@@ -108,9 +108,9 @@ export default {
       });
       //重新计算id
       //如果我不重新计算id 三个商品中我删除第二个，剩下两个商品的id就会为1 3 然后添加2个商品 id会为2 3 之后两个3就会冲突
-      newobj.forEach((item,i)=>{
-        item.id = "" + ++i + ""
-      })
+      newobj.forEach((item, i) => {
+        item.id = "" + ++i + "";
+      });
       this.$store.state.cart.goods = newobj;
       window.console.log(newobj);
       //重新计算其中的id和checked值

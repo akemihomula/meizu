@@ -144,6 +144,7 @@ export default {
   created() {
     //计算商品总计件
     this.spsl = 1;
+    //选择默认地址
     this.$store.state.mydz.arrs.forEach(item => {
       if (item.checked) {
         this.$store.state.mydz.jsdz = item;

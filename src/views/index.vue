@@ -155,7 +155,7 @@
       </div>
       <div class="mz-row">
         <ul>
-          <li v-for="(item,i) in $store.state.sj" :key="i" @click="sjxqy(i)">
+          <li v-for="(item,i) in $store.state.data.sj" :key="i" @click="getdata(i,item)">
             <img :src="item.src" />
             <div class="info">
               <p>{{item.title}}</p>
@@ -203,7 +203,7 @@
       </div>
       <div class="mz-row">
         <ul>
-          <li v-for="(item,i) in $store.state.sx" :key="i" @click="sxxqy(i)">
+          <li v-for="(item,i) in $store.state.data.sx" :key="i" @click="getdata(i,item)">
             <img :src="item.src" />
             <div class="info">
               <p>{{item.title}}</p>
@@ -255,7 +255,7 @@
       </div>
       <div class="mz-row">
         <ul>
-          <li v-for="(item,i) in $store.state.pj" :key="i" @click="pjxqy(i)">
+          <li v-for="(item,i) in $store.state.data.pj" :key="i" @click="getdata(i,item)">
             <img :src="item.src" />
             <div class="info">
               <p>{{item.title}}</p>
@@ -288,41 +288,51 @@ export default {
       this.$store.state.ispd = false;
       this.$router.push("/xq");
     },
-    sjxqy(i) {
+    getdata(i, item) {
+      // window.console.log(i, item);
+      // 根据点击的数据进行不同的分类跳转
+      if (item.isdata == "sj") {
+        this.sj(i);
+      } else if (item.isdata == "sx") {
+        this.sx(i);
+      } else if (item.isdata == "pj") {
+        this.pj(i);
+      }
+      this.$router.push("/xq");
+    },
+    // 下列三个方法是根据不同类型查询不同数据 然后放入详情页中
+    sj(i) {
       this.$store.state.xqy.objs.thumb = [];
-      this.$store.state.xqy.objs.title = this.$store.state.sj[i].title;
-      this.$store.state.xqy.objs.price = this.$store.state.sj[i].jq * 100;
-      this.$store.state.xqy.objs.text = this.$store.state.sj[i].text;
-      this.$store.state.xqy.objs.thumb.push(this.$store.state.sj[i].src);
+      this.$store.state.xqy.objs.title = this.$store.state.data.sj[i].title;
+      this.$store.state.xqy.objs.price = this.$store.state.data.sj[i].jq * 100;
+      this.$store.state.xqy.objs.text = this.$store.state.data.sj[i].text;
+      this.$store.state.xqy.objs.thumb.push(this.$store.state.data.sj[i].src);
       this.$store.state.xqy.objs.thumb.push(
         "https://openfile.meizu.com/group1/M00/07/2C/Cgbj0FzvRKCAKQ5vAAi2dZyo2v4915.png680x680.jpg"
       );
-      this.$router.push("/xq");
     },
-    sxxqy(i) {
+    sx(i) {
       this.$store.state.xqy.objs.thumb = [];
-      this.$store.state.xqy.objs.title = this.$store.state.sx[i].title;
-      this.$store.state.xqy.objs.price = this.$store.state.sx[i].jq * 100;
-      this.$store.state.xqy.objs.text = this.$store.state.sx[i].text;
-      this.$store.state.xqy.objs.thumb.push(this.$store.state.sx[i].src);
+      this.$store.state.xqy.objs.title = this.$store.state.data.sx[i].title;
+      this.$store.state.xqy.objs.price = this.$store.state.data.sx[i].jq * 100;
+      this.$store.state.xqy.objs.text = this.$store.state.data.sx[i].text;
+      this.$store.state.xqy.objs.thumb.push(this.$store.state.data.sx[i].src);
       this.$store.state.xqy.objs.thumb.push(
         "https://fms.res.meizu.com/dms/2019/10/23/b2651b25-a85b-464b-8ff6-57106898e6c3.jpg"
       );
-      this.$router.push("/xq");
     },
-    pjxqy(i) {
+    pj(i) {
       this.$store.state.xqy.objs.thumb = [];
-      this.$store.state.xqy.objs.title = this.$store.state.pj[i].title;
-      this.$store.state.xqy.objs.price = this.$store.state.pj[i].jq * 100;
-      this.$store.state.xqy.objs.text = this.$store.state.pj[i].text;
-      this.$store.state.xqy.objs.thumb.push(this.$store.state.pj[i].src);
+      this.$store.state.xqy.objs.title = this.$store.state.data.pj[i].title;
+      this.$store.state.xqy.objs.price = this.$store.state.data.pj[i].jq * 100;
+      this.$store.state.xqy.objs.text = this.$store.state.data.pj[i].text;
+      this.$store.state.xqy.objs.thumb.push(this.$store.state.data.pj[i].src);
       this.$store.state.xqy.objs.thumb.push(
         "https://fms.res.meizu.com/dms/2018/09/19/e1a6e477-23ab-4dd9-9931-be8a23745054.jpg"
       );
       this.$store.state.xqy.objs.thumb.push(
         "https://fms.res.meizu.com/dms/2018/09/05/4f1db11e-e74e-4058-a041-4dd30666cf81.jpg"
       );
-      this.$router.push("/xq");
     }
   },
   created() {

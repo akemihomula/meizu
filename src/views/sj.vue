@@ -12,15 +12,15 @@
       <!-- 商品栏 -->
       <div class="page-sj-cont">
         <ul>
-          <li v-for="(item,i) in $store.state.shouji.sj" :key="i">
+          <li v-for="(item,i) in $store.state.data.sj" :key="i" @click="sj(i)">
             <div class="page-sj-pho">
-              <img :src="item.img" />
+              <img :src="item.src" />
             </div>
             <div class="into">
               <p class="title">{{item.title}}</p>
               <p :class="item.istype?'name':'name not-type'">
                 <span class="type-text" v-show="item.istype">{{item.type}}</span>
-                <span :class="item.istype?'':'text'">{{item.name}}</span>
+                <span :class="item.istype ? '' : 'text'">{{item.text}}</span>
               </p>
               <p class="yan">&yen;{{item.jq}}</p>
             </div>
@@ -36,6 +36,20 @@
 export default {
   data() {
     return {};
+  },
+  methods: {
+    sj(i) {
+      // window.console.log(i)
+      this.$store.state.xqy.objs.thumb = [];
+      this.$store.state.xqy.objs.title = this.$store.state.data.sj[i].title;
+      this.$store.state.xqy.objs.price = this.$store.state.data.sj[i].jq * 100;
+      this.$store.state.xqy.objs.text = this.$store.state.data.sj[i].text;
+      this.$store.state.xqy.objs.thumb.push(this.$store.state.data.sj[i].src);
+      this.$store.state.xqy.objs.thumb.push(
+        "https://openfile.meizu.com/group1/M00/07/2C/Cgbj0FzvRKCAKQ5vAAi2dZyo2v4915.png680x680.jpg"
+      );
+      this.$router.push("/xq")
+    }
   },
   created() {
     this.$store.state.ispd = true;

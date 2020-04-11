@@ -8,13 +8,13 @@
     <!-- 图片栏end -->
     <div class="page-sx-cont">
       <ul>
-        <li v-for="(item,i) in $store.state.shengxue.sx" :key="i" @click="getcart(i)">
+        <li v-for="(item,i) in $store.state.data.sx" :key="i" @click="getcart(i)">
           <div class="page-sx-pho">
-            <img :src="item.img" />
+            <img :src="item.src" />
           </div>
           <div class="into">
             <p class="title">{{item.title}}</p>
-            <p class="name">{{item.name}}</p>
+            <p class="name">{{item.text}}</p>
             <p class="yan">&yen;{{item.jq}}</p>
           </div>
         </li>
@@ -32,12 +32,13 @@ export default {
     //加入购物车
     getcart(i) {
       this.$store.state.xqy.objs.thumb = [];
-      this.$store.state.xqy.objs.title = this.$store.state.shengxue.sx[i].title;
-      this.$store.state.xqy.objs.price =
-        this.$store.state.shengxue.sx[i].jq * 100;
-      this.$store.state.xqy.objs.text = this.$store.state.shengxue.sx[i].name;
+      this.$store.state.xqy.objs.title = this.$store.state.data.sx[i].title;
+      this.$store.state.xqy.objs.price = this.$store.state.data.sx[i].jq * 100;
+      this.$store.state.xqy.objs.text = this.$store.state.data.sx[i].text;
+      // 三张图片轮播图
+      this.$store.state.xqy.objs.thumb.push(this.$store.state.data.sx[i].src);
       this.$store.state.xqy.objs.thumb.push(
-        this.$store.state.shengxue.sx[i].img
+        "https://fms.res.meizu.com/dms/2019/10/23/b2651b25-a85b-464b-8ff6-57106898e6c3.jpg"
       );
       this.$store.state.xqy.objs.thumb.push(
         require("../assets/img/ye02/06.jpg")

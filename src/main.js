@@ -25,6 +25,7 @@ import axios from "axios";
 axios.defaults.baseURL = "http://192.168.124.5:3000";
 
 Vue.prototype.$axios = axios;
+// jsonp跨域请求
 import VueJsonp from "vue-jsonp";
 Vue.use(VueJsonp);
 
